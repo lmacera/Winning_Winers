@@ -7,24 +7,24 @@ Group 2
 Module 20: Deliverable 1
  
 Decide on a topic, source data, and perform exploratory data analysis.
-•	Flight delay and causes
-•	https://www.kaggle.com/akulbahl/covid19-airline-flight-delays-and-cancellations?select=ColumnDescriptions.txt
-•	Using this data set, we are going to determine the causes for flight delays during COVID-19. This will include percent likelihood and causation.
+- Flight delay and causes
+- https://www.kaggle.com/akulbahl/covid19-airline-flight-delays-and-cancellations?select=ColumnDescriptions.txt
+- Using this data set, we are going to determine the causes for flight delays during COVID-19. This will include percent likelihood and causation.
 
 Create a mockup of a machine learning model
-•	Regression modeling
+- Regression modeling
 
 Create a mockup of a database – Krystin
 
-•	Tables
-o	Airline
-o	Flight
-o	Causation
-•	Will be joining databases by flight number
+- Tables
+   - Airline 
+   - Flight
+   - Causation
+- Will be joining databases by flight number
 
 Decide which technologies will be used.
-•	R
-•	Tableau
-•	Jupyter
-•	Python
-•	Machine learning
+- R
+- Tableau
+- Jupyter
+- Python
+- Machine learning

@@ -33,4 +33,5 @@ Decide which technologies will be used.
 ## Visualization and Dashboard Mock Ups
 
 #Arrival and Departure Delay Distribution 
+<br>
 <img src="Dashboard_Graphs_Charts/Arrival_Delay_Distribution.PNG">

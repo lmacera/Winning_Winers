@@ -34,3 +34,4 @@ Decide which technologies will be used.
 
 #Arrival and Departure Delay Distribution 
 <img src="https://github.com/lmacera/Winning_Winers/tree/lesliemayeux">
+![Alt text](https://github.com/lmacera/Winning_Winers/tree/lesliemayeux)

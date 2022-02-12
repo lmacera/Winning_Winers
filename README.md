@@ -28,3 +28,8 @@ Decide which technologies will be used.
 - Jupyter
 - Python
 - Machine learning
+
+
+## Visualization and Dashboard Mock Ups
+
+#g

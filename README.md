@@ -33,5 +33,4 @@ Decide which technologies will be used.
 ## Visualization and Dashboard Mock Ups
 
 #Arrival and Departure Delay Distribution 
-<img src="https://github.com/lmacera/Winning_Winers/tree/lesliemayeux">
-![Alt text](https://github.com/lmacera/Winning_Winers/tree/lesliemayeux)
+<img src="Dashboard_Graphs_Charts/Arrival_Delay_Distribution.PNG">

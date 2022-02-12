@@ -33,4 +33,4 @@ Decide which technologies will be used.
 ## Visualization and Dashboard Mock Ups
 
 #Arrival and Departure Delay Distribution 
-<img src="Resources/Dev3_ttest_lot3.PNG">
+<img src="https://github.com/lmacera/Winning_Winers/tree/lesliemayeux">

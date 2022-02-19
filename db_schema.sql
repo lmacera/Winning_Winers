@@ -1,6 +1,6 @@
 -- Create Scheduled Flights Table
 CREATE TABLE flights_sched (
-	flight_id  , -- how should we generate this?
+	flight_id  VARCHAR(10),
 	mkt_unique_carrier VARCHAR(4),
 	mkt_carrier_fl_num VARCHAR(8),
 	fl_date DATE, -- need to reformat from M/DD/YYYY to YYYY-MM-DD
@@ -9,13 +9,10 @@ CREATE TABLE flights_sched (
 	day_of_week INT, -- 1 (Mon) to 7 (Sun)
 	origin VARCHAR(5), -- origin airport_code from airports table
 	dest VARCHAR(5), -- destination airport_code from airports table
-	crs_dep_time INT, --CONFUSED on current format. Need to transform to timestamp?
-	dep_time_blk  , -- HELP
-	crs_arr_time INT, --CONFUSED on current format. Need to transform to time stamp?
-	arr_time_blk  , -- HELP
+	dep_time_blk  INT, -- need to truncate to first 2 digits
+	arr_time_blk  INT, -- need to truncate to first 2 digits
 	crs_elapsed_time FLOAT(4), -- in minutes
 	distance INT, -- in miles
-	distance_group INT, -- in 250-mile increments
 	PRIMARY KEY (flight_id),
 	FOREIGN KEY (mkt_unique_carrier),
 	FOREIGN KEY (origin),
@@ -25,47 +22,43 @@ CREATE TABLE flights_sched (
 
 -- Create Flights Actual Table
 CREATE TABLE flights_actual(
-	flight_id , -- how should we generate this?
-	dep_time FLOAT(2), -- in minutes
+	flight_id VARCHAR(10), 
 	taxi_out FLOAT(2), -- in minutes
-	air_time FLOAT(2), -- in minutes *need to create this field*
+	air_time FLOAT(2), -- in minutes *need to create this field* actual_elapsed_time - (taxi_in + taxi_out)
 	taxi_in FLOAT(2), -- in minutes
-	arr_time FLOAT(2), -- in minutes
-	actual_elapsed_time FLOAT(2), -- in minutes *need to create this field*
+	actual_elapsed_time FLOAT(2), -- in minutes
 	PRIMARY KEY (flight_id)
 );
 
 
 -- Create Delayed and Cancelled Flights Table
 CREATE TABLE delays_cancels(
-	flight_id  , -- how should we generate this?
-	dep_del15 BOOLEAN, -- we will have to change 1s and 0s to True/False
-	dep_delay FLOAT(4), -- use "dep_delay_new" column for this to exclude early departures
-	dep_delay_group FLOAT(4),
-	arr_del15 BOOLEAN, -- we will have to change 1s and 0s to True/False
-	arr_delay FLOAT(4), -- use "arr_delay_new" column for this to exclude early arrivals
-	arr_delay_group FLOAT(4),
-	total_delay FLOAT(2), -- need to create this field by adding all delay types below
+	flight_id  VARCHAR(10),
+	dep_del15 VARCHAR(3),
+	dep_delay_new FLOAT(4), -- field excludes early departures
+	arr_del15 VARCHAR(3),
+	arr_delay_new FLOAT(4), -- excludes early arrivals
+	total_delay FLOAT(2), -- need to create this field *(dep_delay_new + arr_delay_new)
 	carrier_delay FLOAT(2), -- in minutes
 	weather_delay FLOAT(2), -- in minutes
 	nas_delay FLOAT(2), -- in minutes
 	security_delay FLOAT(2),  -- in minutes
 	late_aircraft FLOAT(2),  -- in minutes
-	cancelled BOOLEAN, -- we will have to change 1s and 0s to True/False
+	cancelled VARCHAR(3),
 	cancel_code VARCHAR(4),
 	PRIMARY KEY (flight_id),
 	FOREIGN KEY(cancel_code)
 );
 
 
-
 -- Create Airlines Table
 CREATE TABLE airlines (
 	mkt_unique_carrier VARCHAR(4) NOT NULL,
-	carrier_name VARCHAR(20) NOT NULL,
+	carrier_name VARCHAR(30) NOT NULL,
 	PRIMARY KEY (mkt_unique_carrier),
 	UNIQUE (mkt_unique_carrier)
 );
+
 
 -- Create Airport Locations Table
 CREATE TABLE airports (
@@ -75,6 +68,7 @@ CREATE TABLE airports (
 	UNIQUE (airport_code)
 );
 
+
 -- Create Cancellation Reasons Table
 CREATE TABLE cancel_reason (
 	cancel_code VARCHAR(4) NOT NULL,
@@ -82,3 +76,4 @@ CREATE TABLE cancel_reason (
 	PRIMARY KEY (cancel_code),
 	UNIQUE (cancel_code)
 );
+

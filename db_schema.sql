@@ -14,9 +14,9 @@ CREATE TABLE flights_sched (
 	crs_elapsed_time FLOAT(4), -- in minutes
 	distance INT, -- in miles
 	PRIMARY KEY (flight_id),
-	FOREIGN KEY (mkt_unique_carrier),
-	FOREIGN KEY (origin),
-	FOREIGN KEY (dest)
+	FOREIGN KEY (mkt_unique_carrier) REFERENCES airlines(mkt_unique_carrier),
+	FOREIGN KEY (origin) REFERENCES airports(airport_code),
+	FOREIGN KEY (dest) REFERENCES airports(airport_code)
 );
 
 
@@ -47,8 +47,9 @@ CREATE TABLE delays_cancels(
 	cancelled VARCHAR(3),
 	cancel_code VARCHAR(4),
 	PRIMARY KEY (flight_id),
-	FOREIGN KEY(cancel_code)
+	FOREIGN KEY (cancel_code) REFERENCES cancel_reason(cancel_code)
 );
+
 
 
 -- Create Airlines Table
@@ -59,7 +60,6 @@ CREATE TABLE airlines (
 	UNIQUE (mkt_unique_carrier)
 );
 
-
 -- Create Airport Locations Table
 CREATE TABLE airports (
 	airport_code VARCHAR(5) NOT NULL,
@@ -68,7 +68,6 @@ CREATE TABLE airports (
 	UNIQUE (airport_code)
 );
 
-
 -- Create Cancellation Reasons Table
 CREATE TABLE cancel_reason (
 	cancel_code VARCHAR(4) NOT NULL,
@@ -76,4 +75,3 @@ CREATE TABLE cancel_reason (
 	PRIMARY KEY (cancel_code),
 	UNIQUE (cancel_code)
 );
-

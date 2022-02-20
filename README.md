@@ -18,4 +18,8 @@ Since all of the data is labeled with outcomes of each flight, a supervised mach
 
 ### Testing the Model
 
-Using the mock data from the previous week, which is the first fifty rows of the entire dataset, this model was split into training and testing groups. However, the model could not be run since there was only one instance of a flight not being cancelled instead of at least 2 in this mock dataset. This problem will easily be fixed with when the full dataset is being use for this model. At this time there is no accuracy score or imbalanced classification report that can be reported at this time but the script is set up to run and print all of the required elements.
+Using the mock data from the previous week, which is the first fifty rows of the entire dataset, this model was split into training and testing groups. However, the model could not be run since there was only one instance of a flight not being cancelled instead of at least 2 in this mock dataset. This problem will easily be fixed with when the full dataset is being use for this model. At this time there is no accuracy score or imbalanced classification report that can be reported at this time but the script is set up to run and print all of the required elements. This was run in the Testing_regression_model.ipynb
+
+### Generated Data
+
+When using generated data to test the basic format of the logistic regression model in the logistic_regression_model.ipynb, the model is able to perfectly classify each data point into its group. This just shows how the model should run when all of the actual data is correctly formatted.

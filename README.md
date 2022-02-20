@@ -15,3 +15,7 @@ The data for this model will be split using the train_test_split function from t
 ## Model Choice
 
 Since all of the data is labeled with outcomes of each flight, a supervised machine learning model would be appropiate for this project and since there is a binary outcome column with delayed flight information this data is already set up for a logistic regression model. However, since there are potentially a very large number of input values, if the logistic regression model is not a good fit, random forest model might be used to more accurately represent the data at hand.
+
+### Testing the Model
+
+Using the mock data from the previous week, which is the first fifty rows of the entire dataset, this model was split into training and testing groups. However, the model could not be run since there was only one instance of a flight not being cancelled instead of at least 2 in this mock dataset. This problem will easily be fixed with when the full dataset is being use for this model. At this time there is no accuracy score or imbalanced classification report that can be reported at this time but the script is set up to run and print all of the required elements.

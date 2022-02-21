@@ -1,5 +1,5 @@
 # Winning_Winers
-##Group Project
+## Group Project
 
 Data analyst: Ryan Cramer, Leah Ikenberry, Lisa Macera, Leslie Mayeux, Krystin McKee
 Group 2

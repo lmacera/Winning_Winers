@@ -4,23 +4,23 @@ Group Project
 Data analyst: Ryan Cramer, Leah Ikenberry, Lisa Macera, Leslie Mayeux, Krystin McKee
 Group 2
 Create a mockup of a database
-- Tables
+Tables (Will be joining databases by flight number and index)
 - Airline 
 - Flight
 - Causation
-Will be joining databases by flight number
 - Cancellation
 - Delay 
 - flight Actuals
 - flight schedule
 - encoded ML tables
-Will be joining databases by flight number and index
+
 Decide which technologies will be used.
 - R
 - Tableau
 - Jupyter
 - Python
 - Machine learning
+
 ## Analysis Topic and Reasoning
 We have decided to examine a dataset of flights during the early days of the COVID-19 pandemic (January to June 2020). We will be examining the percentage of flights that were delayed, and the primary causes of those delays (government restrictions, staffing shortages, mechanical issues, adverse weather, and others). We have all experienced these delays personally, or our close family or friends have been delayed and forced to book a new flight or forced to deal with an unexpected delay. We are attempting to determine if we can accurately predict delays before they happen.
 

@@ -46,6 +46,11 @@ This data set contains approximately 11 million flights and contains detailed fl
 ## The questions we will answer:
 We are attempting to predict the percentage likelihood of a flight being canceled by training a machine learning model with our data set. We are also looking to determine the largest causation of delay or cancelation with in our data set (i.e. staffing issues, mechanical issues, adverse weather, or something unexpected). We are also looking to determine the ideal time and day of the week to schedule a flight to avoid as many delays as possible. We may also attempt to add current weather data to our model to increase the accuracy of our model.
 
+Module 20: Deliverable 2
+
+## Dashboard
+The main tool we will be using for our dashboard is Tableau. Instead of creating an interactive dashboard, we will be exporting screenshots of our analysis so that we can imbed them into our presentation for a cohesive and effective story.
+
 ## Google Slides Presentation Link
 https://docs.google.com/presentation/d/1P19V19i7VjQFV2h0O-d2SU_5dwpZlarhB_ilmC1GpcY/edit?usp=sharing
 

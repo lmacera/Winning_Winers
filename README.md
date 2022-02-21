@@ -1,10 +1,10 @@
 # Winning_Winers
 ## Group Project
 
-Data analyst: Ryan Cramer, Leah Ikenberry, Lisa Macera, Leslie Mayeux, Krystin McKee
+### Data analyst: Ryan Cramer, Leah Ikenberry, Lisa Macera, Leslie Mayeux, Krystin McKee
 Group 2
 
-Module 20: Deliverable 1
+## Module 20: Deliverable 1
  
 Decide on a topic, source data, and perform exploratory data analysis.
 - Flight delay and causes
@@ -28,6 +28,10 @@ Decide which technologies will be used.
 - Jupyter
 - Python
 - Machine learning
+
+## Module 20: Dev 2
+### Dashboard
+
 
 
 

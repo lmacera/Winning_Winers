@@ -29,9 +29,9 @@ Decide which technologies will be used.
 - Python
 - Machine learning
 
-## Module 20: Dev 2
+## Module 20: Deliverable 2
 ### Dashboard
 
-
+The  main tool we will be using for our dashboard is Tableau.  Instead of creating an interactive dashboard, we will be exporting screenshots of our analysis so that we can imbed them into our presentation for a cohesive and effective story.
 
 

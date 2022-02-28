@@ -36,6 +36,10 @@ We are attempting to predict the percentage likelihood of a flight being cancele
 
 ## Dashboard
 The main tool we will be using for our dashboard is Tableau. Instead of creating an interactive dashboard, we will be exporting screenshots of our analysis so that we can imbed them into our presentation for a cohesive and effective story.
+
+## AWS Database link
+-	https://s3.console.aws.amazon.com/s3/buckets/final-project77?region=us-east-1&tab=objects
+
 ## Google Slides Presentation Link
 https://docs.google.com/presentation/d/1P19V19i7VjQFV2h0O-d2SU_5dwpZlarhB_ilmC1GpcY/edit?usp=sharing
 

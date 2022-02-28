@@ -33,9 +33,6 @@ Create a mockup of a database – Krystin
 -	Contact team and or individuals, through Slack, with any specific questions on specific topics
 -	Use of Gmail to share slides for presentation 
 
-### AWS Database link
--	https://s3.console.aws.amazon.com/s3/buckets/final-project77?region=us-east-1&tab=objects
-
 ## Analysis Topic and Reasoning
 We have decided to examine a dataset of flights during the early days of the COVID-19 pandemic (January to June 2020). We will be examining the percentage of flights that were delayed, and the primary causes of those delays (government restrictions, staffing shortages, mechanical issues, adverse weather, and others). We have all experienced these delays personally, or our close family or friends have been delayed and forced to book a new flight or forced to deal with an unexpected delay. We are attempting to determine if we can accurately predict delays before they happen.
 

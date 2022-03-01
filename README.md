@@ -1,48 +1,59 @@
-# Winning_Winers
-Group Project
+# Perpetually Delayed
 ## Project Overview
 Data analyst: Ryan Cramer, Leah Ikenberry, Lisa Macera, Leslie Mayeux, Krystin McKee
-Group 2
-Create a mockup of a database
-Tables (Will be joining databases by flight number and index)
-- Airline 
-- Flight
-- Causation
-- Cancellation
-- Delay 
-- flight Actuals
-- flight schedule
-- encoded ML tables
-
-Decide which technologies will be used.
-- R
-- Tableau
-- Jupyter
-- Python
-- Machine learning
-
-## Analysis Topic and Reasoning
-We have decided to examine a dataset of flights during the early days of the COVID-19 pandemic (January to June 2020). We will be examining the percentage of flights that were delayed, and the primary causes of those delays (government restrictions, staffing shortages, mechanical issues, adverse weather, and others). We have all experienced these delays personally, or our close family or friends have been delayed and forced to book a new flight or forced to deal with an unexpected delay. We are attempting to determine if we can accurately predict delays before they happen.
-
-## Data Set
-We are going to be using the COVID-19 Airline Flight Delays and Cancelations data set from Kaggle.
-
-https://www.kaggle.com/akulbahl/covid19-airline-flight-delays-and-cancellations?select=jantojun2020.csv
-
-This data set contains approximately 11 million flights and contains detailed flight delay and cancellation data. The United States Department of Transportation Bureau of Transportation Statistics tracks on time performance of domestic flights operated by large air carriers. This data contains relevant flight information for our analysis; on-time, delayed, canceled and diverted flights.
-
-## The questions we will answer:
-We are attempting to predict the percentage likelihood of a flight being canceled by training a machine learning model with our data set. We are also looking to determine the largest causation of delay or cancelation with in our data set (i.e. staffing issues, mechanical issues, adverse weather, or something unexpected). We are also looking to determine the ideal time and day of the week to schedule a flight to avoid as many delays as possible. We may also attempt to add current weather data to our model to increase the accuracy of our model.
-
-## Dashboard
-The main tool we will be using for our dashboard is Tableau. Instead of creating an interactive dashboard, we will be exporting screenshots of our analysis so that we can imbed them into our presentation for a cohesive and effective story.
-
-## AWS Database link
--	https://s3.console.aws.amazon.com/s3/buckets/final-project77?region=us-east-1&tab=objects
-
-## Google Slides Presentation Link
-https://docs.google.com/presentation/d/1P19V19i7VjQFV2h0O-d2SU_5dwpZlarhB_ilmC1GpcY/edit?usp=sharing
-
+Through out the COVD-19 Pandemic, many companies, and individuals experienced changes to operations and often faced issues with supply chains and staffing shortages. One industry severely impacted by the effects of COVID-19 was the airline industry, forced to cancel, restrict, and delay flights because of various issues caused by the pandemic. Using a dataset of over 3 million flights from before and during the COVID pandemic, January 2020- June 2020, our team has examined the main causes of flight cancellations before and after the COVID-19 Pandemic. Through a machine learning logistic regression our team attempted to accurately predict when a flight will be delayed and or cancelled.
+## Resources
+-	Data Source: https://www.kaggle.com/akulbahl/covid19-airline-flight-delays-and-cancellations?select=jantojun2020.csv 
+o	This data set contains approximately 3 million flights and contains detailed flight delay and cancellation data. The United States Department of Transportation Bureau of Transportation Statistics tracks on time performance of domestic flights operated by large air carriers. This data contains relevant flight information for our analysis; on-time, delayed, canceled and diverted flights.
+-	Software: Python (Jupyter Notebook), SQL, Tableau, AWS, and GoogleDocs
+-	Stored cleaned data: https://s3.console.aws.amazon.com/s3/buckets/final-project77?region=us-east-1&tab=objects 
+-	Presentation: https://docs.google.com/presentation/d/1P19V19i7VjQFV2h0O-d2SU_5dwpZlarhB_ilmC1GpcY/edit?usp=sharing 
+-	Dashboard: 
+## Flight Analysis
+### Cleaning the Data
+With the dataset containing over 3 million rows of flight data our team used Python to clean the dataset. Removing over 20 rows of information that we did not consider pertinent to our analysis. The following steps were taken to obtain our two analysis tables for flight scheduled delays and flight scheduled cancellations:
+-	Removed all NAN values and replaced with 0. Our team did not remove the NAN values as doing so removed a significant amount of data.
+-	Replaced all string data with integers
+-	Performed density analysis to bucket the origination and destination cities
+-	Encoded the cancellation response, delay reasons, airline carrier names, destination state name, and origination state name, to run through the machine learning model.
+### Dataset Analysis
+##### Assumptions
+Though our team was able to use a lot of the raw data provided our biggest assumptions were:
+-	Replacing all NAN values with 0. For example, we assumed that if a cancellation row was blank then the flight was not cancelled and thus, we entered a 0 instead of a 1.
+-	For each flight that was delayed there were multiple reasons for delay, in minutes. To analysis the primary cause of delay we assigned the reason for delay to the highest minute delay reason. For example, if a flight was delayed by 5 minutes for security, 10 minutes for weather, and 20 minutes for late aircraft arrival we assumed that the delay reason was late aircraft arrival.
+#### What the data told us
+-	Busiest Airlines are:
+o	American Airlines
+o	Delta Airlines
+o	Southwest Airlines
+o	United Airlines
+-	Busiest Destination and Origination states are
+o	Texas 
+o	California 
+o	Florida 
+o	Illinois 
+o	Georgia 
+o	North Carolina 
+o	New York 
+o	Colorado 
+o	Virginia 
+-	Primary causes for Delay and Cancellation
+o	Delay:
+	Carrier Delay ( i.e. maintenance, staffing)
+	Late aircraft
+	National Aviation System ( i.e. airport traffic, airport operations, and air traffic control).
+o	Cancellation
+	Security
+	Carrier
+-	Worst airlines for delays 
+o	Allegiant Air
+o	Frontier Airlines
+o	Jet Blue
+o	Spirit Airlines
+-	Effects of COVID-19
+o	Carrier delay incread from 36% of delays to 53%
+o	Late Aircraft delays decreased from 34% to 20%
+o	Security cancellations went from 75% to 95%
 
 ## Machine Learning Model
 
@@ -52,20 +63,23 @@ The data for this project was taken off of Kaggle.com and contains information a
 
 #### Feature Selection
 
-For this project, all of the data was labeled with outcomes and there was already a column with binary values for if a flight was delayed or not (DEP_DEL15). This column provides the opportunity to run a logistic regression model and all of the other cleaned and encoded columns could be used to provide factors to decide of a flight will be delayed or not. Some of the variables used to determine if a flight is delayed will be the origin of the flight, the airline, the date and the time of departure.
+For this project, there was already a column with binary values for if a flight was cancelled or not. This column provides the opportunity to run a logistic regression model and all of the other cleaned columns could be used to provide factors to decide of a flight will be cancelled or not.  
 
-### Training and Testing Split
+## Training and Testing Split
 
-The data for this model will be split using the train_test_split function from the sklearn.model_selection library. Since there is a lot of data in this dataset the data can be split into a 75% training set and a 25% testing set. If there is a real imbalance between the delayed and non-delayed flights, once the data has been cleaned, various methods of sampling will be used to try and find the best fit.
+The data for this model will be split using the train_test_split function from the sklearn.model_selection library. Since there is a lot of data in this dataset the data can be split into a 75% training set and a 25% testing set.
 
-### Model Choice
+## Model Choice
 
-Since all of the data is labeled with outcomes of each flight, a supervised machine learning model would be appropiate for this project and since there is a binary outcome column with delayed flight information this data is already set up for a logistic regression model (dep_del15). However, since there are potentially a very large number of input values, if the logistic regression model is not a good fit, random forest model might be used to more accurately represent the data at hand.
+Since all of the data is labeled with outcomes of each flight, a supervised machine learning model would be appropiate for this project and since there is a binary outcome column with delayed flight information this data is already set up for a logistic regression model. However, since there are potentially a very large number of input values, if the logistic regression model is not a good fit, random forest model might be used to more accurately represent the data at hand.
 
-#### Testing the Model
+### Testing the Model
 
-It took a good amount of time to clean the entire dataset and figure out a way to store the dataset in AWS and merge the appropiate tables in SQL. The final dataset was successfully loaded and separated into training and testing sets and scaled. However there is currently a problem with the number of samples (Found input variables with inconsistent numbers of samples: [80316015, 2745847]) which will be address shortly. This means that there is still no accuracy score or imbalanced classification report. However there has been good progress made with getting the data ready to go into the model. This was all done in the "Real_data_model_test.ipynb".
+Using the mock data from the previous week, which is the first fifty rows of the entire dataset, this model was split into training and testing groups. However, the model could not be run since there was only one instance of a flight not being cancelled instead of at least 2 in this mock dataset. This problem will easily be fixed with when the full dataset is being use for this model. At this time there is no accuracy score or imbalanced classification report that can be reported at this time but the script is set up to run and print all of the required elements. This was run in the Testing_regression_model.ipynb
 
-#### Generated Data
+### Generated Data
 
 When using generated data to test the basic format of the logistic regression model in the logistic_regression_model.ipynb, the model is able to perfectly classify each data point into its group. This just shows how the model should run when all of the actual data is correctly formatted.
+
+## Conclusion
+

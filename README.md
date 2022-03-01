@@ -1,27 +1,38 @@
 # Perpetually Delayed
 ## Project Overview
-Data analyst: Ryan Cramer, Leah Ikenberry, Lisa Macera, Leslie Mayeux, Krystin McKee
+**Data analyst**: Ryan Cramer, Leah Ikenberry, Lisa Macera, Leslie Mayeux, Krystin McKee
+
 Through out the COVD-19 Pandemic, many companies, and individuals experienced changes to operations and often faced issues with supply chains and staffing shortages. One industry severely impacted by the effects of COVID-19 was the airline industry, forced to cancel, restrict, and delay flights because of various issues caused by the pandemic. Using a dataset of over 3 million flights from before and during the COVID pandemic, January 2020- June 2020, our team has examined the main causes of flight cancellations before and after the COVID-19 Pandemic. Through a machine learning logistic regression our team attempted to accurately predict when a flight will be delayed and or cancelled.
+
 ## Resources
+
 -	Data Source: https://www.kaggle.com/akulbahl/covid19-airline-flight-delays-and-cancellations?select=jantojun2020.csv 
 o	This data set contains approximately 3 million flights and contains detailed flight delay and cancellation data. The United States Department of Transportation Bureau of Transportation Statistics tracks on time performance of domestic flights operated by large air carriers. This data contains relevant flight information for our analysis; on-time, delayed, canceled and diverted flights.
 -	Software: Python (Jupyter Notebook), SQL, Tableau, AWS, and GoogleDocs
 -	Stored cleaned data: https://s3.console.aws.amazon.com/s3/buckets/final-project77?region=us-east-1&tab=objects 
 -	Presentation: https://docs.google.com/presentation/d/1P19V19i7VjQFV2h0O-d2SU_5dwpZlarhB_ilmC1GpcY/edit?usp=sharing 
 -	Dashboard: 
+
 ## Flight Analysis
+
 ### Cleaning the Data
+
 With the dataset containing over 3 million rows of flight data our team used Python to clean the dataset. Removing over 20 rows of information that we did not consider pertinent to our analysis. The following steps were taken to obtain our two analysis tables for flight scheduled delays and flight scheduled cancellations:
 -	Removed all NAN values and replaced with 0. Our team did not remove the NAN values as doing so removed a significant amount of data.
 -	Replaced all string data with integers
 -	Performed density analysis to bucket the origination and destination cities
 -	Encoded the cancellation response, delay reasons, airline carrier names, destination state name, and origination state name, to run through the machine learning model.
+
 ### Dataset Analysis
+
 ##### Assumptions
+
 Though our team was able to use a lot of the raw data provided our biggest assumptions were:
 -	Replacing all NAN values with 0. For example, we assumed that if a cancellation row was blank then the flight was not cancelled and thus, we entered a 0 instead of a 1.
 -	For each flight that was delayed there were multiple reasons for delay, in minutes. To analysis the primary cause of delay we assigned the reason for delay to the highest minute delay reason. For example, if a flight was delayed by 5 minutes for security, 10 minutes for weather, and 20 minutes for late aircraft arrival we assumed that the delay reason was late aircraft arrival.
+-
 #### What the data told us
+
 -	Busiest Airlines are:
 o	American Airlines
 o	Delta Airlines

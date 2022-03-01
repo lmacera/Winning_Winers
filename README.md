@@ -6,8 +6,7 @@ Through out the COVD-19 Pandemic, many companies, and individuals experienced ch
 
 ## Resources
 
--	Data Source: https://www.kaggle.com/akulbahl/covid19-airline-flight-delays-and-cancellations?select=jantojun2020.csv 
-o	This data set contains approximately 3 million flights and contains detailed flight delay and cancellation data. The United States Department of Transportation Bureau of Transportation Statistics tracks on time performance of domestic flights operated by large air carriers. This data contains relevant flight information for our analysis; on-time, delayed, canceled and diverted flights.
+-	Data Source: https://www.kaggle.com/akulbahl/covid19-airline-flight-delays-and-cancellations?select=jantojun2020.csv  (TThis data set contains approximately 3 million flights and contains detailed flight delay and cancellation data. The United States Department of Transportation Bureau of Transportation Statistics tracks on time performance of domestic flights operated by large air carriers. This data contains relevant flight information for our analysis; on-time, delayed, canceled and diverted flights.)
 -	Software: Python (Jupyter Notebook), SQL, Tableau, AWS, and GoogleDocs
 -	Stored cleaned data: https://s3.console.aws.amazon.com/s3/buckets/final-project77?region=us-east-1&tab=objects 
 -	Presentation: https://docs.google.com/presentation/d/1P19V19i7VjQFV2h0O-d2SU_5dwpZlarhB_ilmC1GpcY/edit?usp=sharing 
@@ -34,10 +33,10 @@ Though our team was able to use a lot of the raw data provided our biggest assum
 #### What the data told us
 
 -	Busiest Airlines are:
-o	American Airlines
-o	Delta Airlines
-o	Southwest Airlines
-o	United Airlines
+      o	American Airlines
+      o	Delta Airlines
+      o	Southwest Airlines
+      o	United Airlines
 -	Busiest Destination and Origination states are
 o	Texas 
 o	California 

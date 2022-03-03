@@ -25,6 +25,7 @@ Create a mockup of a database – Krystin
 Decide which technologies will be used.
 - R
 - Tableau
+- Excel
 - Jupyter
 - Python
 - Machine learning
@@ -34,4 +35,5 @@ Decide which technologies will be used.
 
 The  main tool we will be using for our dashboard is Tableau.  Instead of creating an interactive dashboard, we will be exporting screenshots of our analysis so that we can imbed them into our presentation for a cohesive and effective story.
 
-
+## Dashboard and Visuals
+Initially was going to use Tableau and the full data set but ran into calculation issues.  I used some side data frames and imported them into Tableau for ease and used Excel for the rest.

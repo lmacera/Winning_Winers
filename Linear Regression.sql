@@ -99,4 +99,47 @@ DROP COLUMN MKT_UNIQUE_CARRIER,
 DROP COLUMN ORIGIN,
 DROP COLUMN DEST;
 Select * from merged_cancel;
+CREATE TABLE merged_Delay AS
+select flights_sched_dely.*, 
+encoded_orgin.ORIGIN_STATE_NM_California,
+encoded_orgin.ORIGIN_STATE_NM_Colorado,
+encoded_orgin.ORIGIN_STATE_NM_Florida,
+encoded_orgin.ORIGIN_STATE_NM_Georgia,
+encoded_orgin.ORIGIN_STATE_NM_Illinois,
+encoded_orgin.ORIGIN_STATE_NM_New_York,
+encoded_orgin.ORIGIN_STATE_NM_North_Carolina,
+encoded_orgin.ORIGIN_STATE_NM_Other,
+encoded_orgin.ORIGIN_STATE_NM_Texas,
+encoded_orgin.ORIGIN_STATE_NM_Virginia,
+encoded_dest2.DEST_STATE_NM_California,
+encoded_dest2.DEST_STATE_NM_Colorado,
+encoded_dest2.DEST_STATE_NM_Florida,
+encoded_dest2.DEST_STATE_NM_Georgia,
+encoded_dest2.DEST_STATE_NM_Illinois,
+encoded_dest2.DEST_STATE_NM_New_York,
+encoded_dest2.DEST_STATE_NM_North_Carolina,
+encoded_dest2.DEST_STATE_NM_Other,
+encoded_dest2.DEST_STATE_NM_Texas,
+encoded_dest2.DEST_STATE_NM_Virginia,
+encoded_carrier.MKT_UNIQUE_CARRIER_AA,
+encoded_carrier.MKT_UNIQUE_CARRIER_AS,
+encoded_carrier.MKT_UNIQUE_CARRIER_B6,
+encoded_carrier.MKT_UNIQUE_CARRIER_DL,
+encoded_carrier.MKT_UNIQUE_CARRIER_F9,
+encoded_carrier.MKT_UNIQUE_CARRIER_G4,
+encoded_carrier.MKT_UNIQUE_CARRIER_HA,
+encoded_carrier.MKT_UNIQUE_CARRIER_NK,
+encoded_carrier.MKT_UNIQUE_CARRIER_UA,
+encoded_carrier.MKT_UNIQUE_CARRIER_WN
+from flights_sched_dely
+join encoded_orgin on flights_sched_dely.flight_id= encoded_orgin.flight_id
+join encoded_dest2 on flights_sched_dely.flight_id = encoded_dest2.flight_id
+join encoded_carrier on flights_sched_dely.flight_id = encoded_carrier.flight_id
+join encoded_cancel on flights_sched_dely.flight_id = encoded_cancel.flight_id	
+	
+ALTER TABLE merged_Delay
+DROP COLUMN MKT_UNIQUE_CARRIER,
+DROP COLUMN ORIGIN,
+DROP COLUMN DEST;
+Select * from merged_Delay;
 	

@@ -81,7 +81,7 @@ The data for this model was split using the train_test_split function from the s
 
 ### Model Choice
 
-Since all of the data is labeled with outcomes of each flight, a supervised machine learning model would be appropriate for this project and since there is a binary outcome column with delayed flight information this data is already set up for a logistic regression model or a random forest model. A logistic regression model was chosen because it is a fairly simple model that is easy to implement and gives a clear outcome. It might not produce a good outcome since there are so many features’ beings used for this analysis. A random forest classifier model will be used in the case that the logistic regression model is not adequate. A random forest model is beneficial since it can take a lot of input features, can handle a large dataset more efficiently than other models and reduces the chance of overfitting. One disadvantage is that a random forest model is harder to interpret and relies on feature importance to explain it.
+All of the data is labeled with outcomes of each flight, a supervised machine learning model was appropriate for this project. Since there is a binary outcome column with delayed flight information this data is set up for a logistic regression model and or a random forest model. A logistic regression model was chosen because it is an intuitive model that often gives clear outcomes. A risk our team considered when choosing a logistic regression was that the results may be since there are so many features’ beings used for this analysis. A random forest classifier model will be used in the case that the logistic regression model is not adequate. A random forest model is beneficial since it can take a lot of input features, can handle a large dataset more efficiently than other models and reduces the chance of overfitting. One disadvantage is that a random forest model is harder to interpret and relies on feature importance to explain it.
 
 #### Testing the Model
 
@@ -93,55 +93,58 @@ It took a good amount of time to clean the entire dataset and figure out a way t
 
 ![Accuracy of Logistic Regression for Delays](https://github.com/lmacera/Winning_Winers/blob/likenberry_branch/Resources/Accuracy_lm_delay.png)
 
+The confusion matrix showed that this model did have more true positives and true negatives than false positives and false negatives but there could be some improvement. 
+
 ![Confusion Matrix of LR for Delays](https://github.com/lmacera/Winning_Winers/blob/likenberry_branch/Resources/Matrix_lm_delay.png) 
 
-The confusion matrix showed that this model did have more true positives and true negatives than false positives and false negatives but there could be some improvement. 
+The imbalanced classification report showed that this model was much better at predicting on-time flights than delayed flights with a precision score of 87% and a recall score of 67% meaning that a delayed flight was correctly classified 67% of the time.
 
 ![Classification Report of LR for Delays](https://github.com/lmacera/Winning_Winers/blob/likenberry_branch/Resources/Class_report_lm_delay.png) 
 
-The imbalanced classification report showed that this model was much better at predicting on-time flights than delayed flights with a precision score of 87% and a recall score of 67% meaning that a delayed flight was correctly classifed 67% of the time.
+- Since the logistic regression model was not very successful at classifying delayed flights, a random forest classifier model was used and trained. The accuracy improved from 62% to 66% (0.667811).  The below results showed that this model was little better at classifying true values than the false values. 
 
-- Since the logistic regression model was not very successful at classifying delayed flights, a random forest classifier model was used and trained. The accuracy improved from 62% to 66% (0.667811) which is better than it was. 
 ![Accuracy of RF for Delays](https://github.com/lmacera/Winning_Winers/blob/likenberry_branch/Resources/Accuracy_rf_delay.png)
 
  ![Confusion Matrix of RF for Delays](https://github.com/lmacera/Winning_Winers/blob/likenberry_branch/Resources/Matrix_rf_delay.png) 
 
-showed that this model was little better at classifying true values than the false values. 
+The classification report had very similar recall and precision scores to the logistic regression model. 
 
 ![Classification Report of RF for Delays](https://github.com/lmacera/Winning_Winers/blob/likenberry_branch/Resources/Classreport_rf_delay.png) 
 
-The classification report had very similar recall and precision scores to the logistic regression model. 
-![Top Features of RF for Delays](https://github.com/lmacera/Winning_Winers/blob/likenberry_branch/Resources/Top_feats_rf_delay.png)
 One of the features from the random forest model is a ranking of the importance of features to that model. This image shows the most important features which should be analyzed further to understand better what they mean.
+
+![Top Features of RF for Delays](https://github.com/lmacera/Winning_Winers/blob/likenberry_branch/Resources/Top_feats_rf_delay.png)
 
 ##### Cancelled Flights
 
-- Just as with the delayed flights, the cancelled flights were tested with a logistic regression model after naive over sampling the data. The accuracy for this model was about 72% (0.721583) which is better meaning that the model could correctly identify if a flight was cancelled or not 72% of the time. 
+- Just as with the delayed flights, the cancelled flights were tested with a logistic regression model after naive over sampling the data. The accuracy for this model was about 72% (0.721583), meaning that the model could correctly identify if a flight was cancelled or not 72% of the time. 
 
 ![Accuracy of LR for Cancels](https://github.com/lmacera/Winning_Winers/blob/likenberry_branch/Resources/Accuracy_lm_cancel.png) 
 
-![Confusion Matrix of LR for Cancels](https://github.com/lmacera/Winning_Winers/blob/likenberry_branch/Resources/Matrix_lm_cancel.png) 
-
 The confusion matrix showed that there were more true negatives and positives than false negatives and positives.
 
+![Confusion Matrix of LR for Cancels](https://github.com/lmacera/Winning_Winers/blob/likenberry_branch/Resources/Matrix_lm_cancel.png) 
+
+The recall score for this model was lower at almost 69% but the precision score show that the model was better at predicting if a flight would be on time than if it was cancelled.
+
 ![Classification Report of LR for Cancels](https://github.com/lmacera/Winning_Winers/blob/likenberry_branch/Resources/Classreport_lm_cancel.png) 
-The recall score for this model was surprisingly low at almost 69% but the precision score show that the model was better at predicting if a flight would be on time than if it was cancelled.
-- After the logistic model did not return a very reliable model so a random forest model was run on the cancelled data. The accuracy of this model was almost 90% (0.899691) 
+
+- After the logistic model did not return a very reliable model a random forest model was run on the cancelled data. The accuracy of this model was almost 90% (0.899691). This high accuracy score indicates that this model is good at predicting on-time vs cancelled flights. 
+
 ![Accuracy of RF for Cancels](https://github.com/lmacera/Winning_Winers/blob/likenberry_branch/Resources/Accuracy_rf_cancel.png) 
-
-This is a very good accuracy meaning this model is good at predicting on-time vs cancelled flights. 
-
-![Confusion Matrix of RF for Cancels](https://github.com/lmacera/Winning_Winers/blob/likenberry_branch/Resources/Matrix_rf_cancel.png) 
 
 Here it is easy to see that almost all of the flights were correctly identified and labeled correctly.
 
+![Confusion Matrix of RF for Cancels](https://github.com/lmacera/Winning_Winers/blob/likenberry_branch/Resources/Matrix_rf_cancel.png) 
+
+The recall score for this model was 87% which means that a flight was identified as cancelled or on-time 87% of the time and a precision score of 93%. 
+
  ![Classification Report of RF for Cancels](https://github.com/lmacera/Winning_Winers/blob/likenberry_branch/Resources/Classreport_rf_cancel.png) 
 
-The recall score for this model was 87% which means that a flight was identified as cancelled or on-time 87% of the time and a precision score of 93% which is very good. 
+Below are the top features ranked by importance for the random forest model. The top four features are the same as the ones from the delayed model but in a different order. Future analysis should be done on these features.
 
 ![Top Features of RF for Cancels](https://github.com/lmacera/Winning_Winers/blob/likenberry_branch/Resources/Top_feats_rf_cancel.png) 
 
-These are the top features ranked by importance for the random forest model. The top four features are the same as the ones from the delayed model but in a different order. Future analysis should be done on these features.
 
 ### Model Conclusions
 

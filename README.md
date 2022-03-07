@@ -18,7 +18,7 @@ Through out the COVD-19 Pandemic, many companies, and individuals experienced ch
 
 With the dataset containing over 3 million rows of flight data our team used Python to clean the dataset. Removing over 20 rows of information that we did not consider pertinent to our analysis. The following steps were taken to obtain our two analysis tables for flight scheduled delays and flight scheduled cancellations:
 -	Removed all NAN values and replaced with 0. Our team did not remove the NAN values as doing so removed a significant amount of data.
--	Replaced all string data with integers
+-	Replaced all string data with integers 
 -	Performed density analysis to bucket the origination and destination cities
 -	Encoded the cancellation response, delay reasons, airline carrier names, destination state name, and origination state name, to run through the machine learning model.
 
